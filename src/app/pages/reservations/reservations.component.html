@@ -1,0 +1,48 @@
+<div class="reservations">
+  <h1>My Reservations</h1>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Movie</th>
+          <th>Showtime</th>
+          <th>Seat</th>
+          <th>Reserved On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <td class="movie-cell">
+            <img
+              [src]="reservation.showtime.movie.poster"
+              alt="Movie poster"
+              class="movie-poster"
+            />
+            <div class="movie-info">
+              <span class="movie-title">{{
+                reservation.showtime.movie.title
+              }}</span>
+              <span class="movie-year"
+                >({{ reservation.showtime.movie.year }})</span
+              >
+              <span class="movie-genre">{{
+                reservation.showtime.movie.genre
+              }}</span>
+            </div>
+          </td>
+          <td data-label="Showtime">
+            {{ reservation.showtime.date | date: "MMM d, y h:mm a" }}
+          </td>
+          <td data-label="Seat">{{ reservation.seat }}</td>
+          <td data-label="Reserved On">
+            {{ reservation.reservationDate | date: "MMM d, y h:mm a" }}
+          </td>
+        </tr>
+        <tr *ngIf="reservations.length === 0">
+          <td colspan="4">No reservations found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

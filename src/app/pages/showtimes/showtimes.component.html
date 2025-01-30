@@ -1,0 +1,47 @@
+<div class="movies-container">
+  <h1>Now Showing</h1>
+
+  <div class="movies-grid">
+    <div *ngFor="let showtime of showtimes" class="movie-card">
+      <div class="movie-header">
+        <img
+          [src]="showtime.poster"
+          [alt]="showtime.title"
+          class="movie-poster"
+        />
+        <div class="movie-info">
+          <h2 class="movie-title">
+            {{ showtime.title }}
+            <span class="movie-year">({{ showtime.year }})</span>
+          </h2>
+          <p class="movie-genre">{{ showtime.genre }}</p>
+          <p class="movie-plot">{{ showtime.plot }}</p>
+        </div>
+      </div>
+
+      <div class="showtimes">
+        <div
+          *ngFor="let showtimeObj of showtime.showtimes"
+          class="format-section"
+        >
+          <h3 class="format-title">{{ showtimeObj.format }}</h3>
+          <div class="time-pills">
+            <button
+              *ngFor="let time of showtimeObj.times"
+              class="time-pill"
+              (click)="
+                navigateToShowtime(
+                  showtime.title,
+                  showtimeObj.format,
+                  time.date
+                )
+              "
+            >
+              {{ time.date | date: "shortTime" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

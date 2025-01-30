@@ -1,0 +1,158 @@
+.reservations {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+h1 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: white;
+}
+
+.table-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.movie-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.movie-poster {
+  width: 48px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.movie-title {
+  font-weight: 500;
+  color: white;
+}
+
+.movie-year {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.movie-genre {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .table-container {
+    border-radius: 8px;
+  }
+
+  table {
+    min-width: unset;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  td {
+    display: block;
+    text-align: right;
+    padding: 0.5rem 1rem;
+    border-bottom: none;
+  }
+
+  td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .movie-cell {
+    text-align: left;
+  }
+
+  .movie-poster {
+    width: 40px;
+    height: 60px;
+  }
+
+  .movie-title {
+    font-size: 0.9rem;
+  }
+
+  .movie-year,
+  .movie-genre {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: 0;
+  }
+
+  .table-container {
+    border-radius: 0;
+  }
+
+  td {
+    padding: 0.5rem;
+  }
+}

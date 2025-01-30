@@ -1,0 +1,212 @@
+/* TODO fix classes to match login forms */
+
+.reservation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.movie-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.showtime-info {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+}
+
+.screen-container {
+  perspective: 500px;
+  margin-bottom: 3rem;
+}
+
+.screen {
+  background: rgba(255, 255, 255, 0.9);
+  height: 70px;
+  width: 100%;
+  margin: 0 auto;
+  transform: rotateX(-30deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #333;
+}
+
+.seats-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.seats-grid {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.row-label {
+  color: white;
+  width: 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.seat:hover:not(.reserved) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.seat.selected {
+  background: #4caf50;
+}
+
+.seat.reserved {
+  background: rgba(255, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.seat-sample {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.seat-sample.available {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.seat-sample.selected {
+  background: #4caf50;
+}
+
+.seat-sample.reserved {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.summary {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.selected-seats {
+  margin-bottom: 1rem;
+}
+
+.selected-seats h3 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.selected-seats p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.reserve-button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reserve-button:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.reserve-button:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .reservation-container {
+    padding: 1rem;
+  }
+
+  .screen {
+    height: 50px;
+  }
+
+  .seats-grid {
+    padding: 1rem;
+  }
+
+  .seat {
+    width: 30px;
+    height: 30px;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .seat {
+    width: 25px;
+    height: 25px;
+    font-size: 0.7rem;
+  }
+
+  .row-label {
+    width: 20px;
+    font-size: 0.8rem;
+  }
+}

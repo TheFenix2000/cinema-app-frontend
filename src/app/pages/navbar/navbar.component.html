@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a [routerLink]="['/reservations']" class="brand">CinemaApp</a>
+  </div>
+  <div class="nav-links">
+    <a
+      [routerLink]="['/reservations']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-link"
+      >Home</a
+    >
+    <a [routerLink]="['/showtimes']" routerLinkActive="active" class="nav-link"
+      >Showtimes</a
+    >
+    <a [routerLink]="['/signout']" routerLinkActive="active" class="nav-link"
+      >Sign Out</a
+    >
+  </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,61 @@
+<div class="reservation-container">
+  <div class="movie-info">
+    <h1>{{ movieTitle }}</h1>
+    <p class="showtime-info">
+      {{ format }} • {{ showtime | date: "MMM d, y h:mm a" }}
+    </p>
+  </div>
+
+  <div class="screen-container">
+    <div class="screen">Screen</div>
+  </div>
+
+  <div class="seats-container">
+    <div class="seats-grid">
+      <div *ngFor="let row of seats" class="seat-row">
+        <div class="row-label">{{ getRowLabel(row[0].row) }}</div>
+        <div
+          *ngFor="let seat of row"
+          class="seat"
+          [class.selected]="seat.isSelected"
+          [class.reserved]="seat.isReserved"
+          (click)="toggleSeat(seat)"
+        >
+          {{ seat.number }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="seat-sample available"></div>
+      <span>Available</span>
+    </div>
+    <div class="legend-item">
+      <div class="seat-sample selected"></div>
+      <span>Selected</span>
+    </div>
+    <div class="legend-item">
+      <div class="seat-sample reserved"></div>
+      <span>Reserved</span>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="selected-seats">
+      <h3>Selected Seat</h3>
+      <p *ngIf="getSelectedSeats().length === 0">No seat selected</p>
+      <p *ngIf="getSelectedSeats().length > 0">
+        {{ getSelectedSeatsDisplay() }}
+      </p>
+    </div>
+    <button
+      class="reserve-button"
+      [disabled]="getSelectedSeats().length === 0"
+      (click)="reserveSeats()"
+    >
+      Reserve Seats
+    </button>
+  </div>
+</div>
